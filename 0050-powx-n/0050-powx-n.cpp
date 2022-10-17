@@ -5,9 +5,6 @@ public:
             return 1.0;
         }
         double small=power(x,n-1);
-        if(small>INT_MAX/x || small<INT_MIN/x){
-            return 0;
-        }
         double big=x*small;
         return big;
     }
