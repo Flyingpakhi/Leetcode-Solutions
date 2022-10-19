@@ -1,6 +1,6 @@
 class Solution {
     private:
-    void solve(vector<int> nums,int index,vector<int>output,vector<vector<int>>& ans,int &count){
+    void solve(vector<int> nums,int index,vector<int> output,vector<vector<int>>& ans,int &count){
         if(index>=nums.size()){
             ans.push_back(output);
             count++;
@@ -21,6 +21,14 @@ public:
         int count=0;
         solve(nums,index,output,ans,count);
         cout<<count<<endl;
+  for (int i = 0; i < ans.size(); i++)
+    {
+        for (int j = 0; j < ans[i].size(); j++)
+        {
+            cout << ans[i][j] << " ";
+        }    
+        cout << endl;
+    }
         return ans;
     }
 };
