@@ -6,9 +6,6 @@ public:
             if(s[i]>='A'&&s[i]<='Z'){
                 s[i]=s[i]-'A'+'a';
             }
-            else {
-                s[i]=s[i];
-            }
         }
         return s;
     }
