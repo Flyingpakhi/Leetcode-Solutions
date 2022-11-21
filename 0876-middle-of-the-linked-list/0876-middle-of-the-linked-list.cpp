@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-    int getLen(ListNode* &head){
+    /*int getLen(ListNode* &head){
     ListNode* temp=head;
     int count=0;
     while(temp!=NULL){
@@ -30,5 +30,23 @@ public:
             }
             head=temp;
         return head;
-    }
+    }*/
+     ListNode* middleNode(ListNode* head){
+         if(head==NULL||head->next==NULL){
+             return head;
+         }
+         if(head->next->next==NULL){
+             return head->next;
+         }
+         ListNode* fast=head->next;
+         ListNode* slow=head;
+         while(fast!=NULL){
+             fast=fast->next;
+             if(fast!=NULL){
+                 fast=fast->next;
+             }
+             slow=slow->next;
+         }
+         return slow;
+     }   
 };
