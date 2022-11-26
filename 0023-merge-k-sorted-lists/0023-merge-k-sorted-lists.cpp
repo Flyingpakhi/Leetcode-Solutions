@@ -48,7 +48,7 @@ public:
         return head;
     }
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        ListNode* merge=new ListNode(-2147483648);
+        ListNode* merge=new ListNode(INT_MIN);
         ListNode* head1=merge;
         for(int i=0;i<lists.size();i++){
             merge=mergeTwoLists(lists[i],merge);
