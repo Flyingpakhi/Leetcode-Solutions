@@ -7,10 +7,11 @@ public:
                 ans.push_back(nums[i]);
             }
         }
-        vector<int>::iterator ip;
+        // vector<int>::iterator ip;
         sort(ans.begin(),ans.end());
-        ip = std::unique(ans.begin(), ans.end());
-        ans.resize(std::distance(ans.begin(), ip));
+        unique(ans.begin(), ans.end());
+        // ip = std::unique(ans.begin(), ans.end());
+        // ans.resize(std::distance(ans.begin(), ip));
         int sum=0;
         for(int i=0;i<ans.size();i++){
             sum+=1;
