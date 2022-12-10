@@ -51,11 +51,11 @@ TreeNode* deleteNode(TreeNode* root, int key) {
     }
     else if(root->val<key){
         root->right=deleteNode(root->right,key);
-        return root;
+        //return root;
     }
     else{
         root->left=deleteNode(root->left,key);
-        return root;
+        //return root;
     }
     return root;
 }
