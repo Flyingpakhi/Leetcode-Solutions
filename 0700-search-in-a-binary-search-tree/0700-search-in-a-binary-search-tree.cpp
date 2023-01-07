@@ -11,8 +11,8 @@
  */
 class Solution {
 public:
-    TreeNode* search(TreeNode* root, int val){
-     TreeNode* temp=root;
+    TreeNode* search(TreeNode* root,int val){
+       TreeNode* temp=root;
         while(temp!=NULL){
             if(temp->val==val){
                 return temp;
@@ -24,7 +24,7 @@ public:
                 temp=temp->right;
             }
         }
-        return temp;   
+        return temp;
     }
     TreeNode* searchBST(TreeNode* root, int val) {
         return search(root,val);
