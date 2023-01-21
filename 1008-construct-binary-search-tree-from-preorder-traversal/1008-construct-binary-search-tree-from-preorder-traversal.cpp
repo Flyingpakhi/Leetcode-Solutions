@@ -1,34 +1,34 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
 class Solution {
 public:
-    TreeNode* search(TreeNode* &root,int data){
-        if(root==NULL){
-            root=new TreeNode(data);
-            return root;
+    int find(vector<int>in,int element){
+        for(int i=0;i<in.size();i++){
+            if(in[i]==element){
+                in[i]=-1;
+                return i;
+            }
         }
-        if(data>root->val){
-            root->right=search(root->right,data);
+        return -1;
+    }
+    TreeNode* solve(vector<int>inorder,vector<int>preorder,int& index,int inorderS,int inorderE,int n){
+        if(index>=n || inorderS>inorderE){
+            return NULL;
         }
-        else{
-            root->left=search(root->left,data);
-        }
+        int element=preorder[index++];
+        TreeNode* root=new TreeNode(element);
+        int pos=find(inorder,element);
+        root->left=solve(inorder,preorder,index,inorderS,pos-1,n);
+        root->right=solve(inorder,preorder,index,pos+1,inorderE,n);
         return root;
-}
+    }
     TreeNode* bstFromPreorder(vector<int>& preorder) {
-        TreeNode* root=NULL;
+        vector<int>inorder;
         for(int i=0;i<preorder.size();i++){
-            root=search(root,preorder[i]);
+            inorder.push_back(preorder[i]);
         }
+        sort(inorder.begin(),inorder.end());
+        int index=0;
+        int n=inorder.size();
+        TreeNode* root=solve(inorder,preorder,index,0,n-1,n);
         return root;
     }
 };
