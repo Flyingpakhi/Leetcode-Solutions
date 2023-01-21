@@ -1,3 +1,12 @@
+int find(vector<int>post,int element){
+    for(int i=0;i<post.size();i++){
+        if(post[i]==element){
+            post[i]=-1;
+            return i;
+        }
+    }
+    return -1;
+}
 TreeNode* solve(vector<int>pre,vector<int>post,int &index,int postS,int postE,int n){
         if(index>=n || postS>postE){
             return NULL;
@@ -8,12 +17,13 @@ TreeNode* solve(vector<int>pre,vector<int>post,int &index,int postS,int postE,in
             return root;
         }
         int element=pre[index];
-        int i;
-        for(i=postS;i<=postE;++i){
-            if(element==post[i]){
-                break;
-            }
-        }
+        int i=find(post,element);
+        // int i;
+        // for(i=postS;i<=postE;++i){
+        //     if(element==post[i]){
+        //         break;
+        //     }
+        // }
         if(i<=postE){
         root->left=solve(pre,post,index,postS,i,n);
         root->right=solve(pre,post,index,i+1,postE-1,n);
