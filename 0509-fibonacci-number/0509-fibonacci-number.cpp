@@ -1,20 +1,22 @@
 class Solution {
 public:
-    int fib(int n) {
-    int first=0;
-    int second=1;
-        int next;
-        if(n==0){
-            return 0;
+    int fibo_helper(int *ans,int n){
+        if(n<=1){
+            return n;
         }
-        if(n==1){
-            return 1;
+        if(ans[n]!=-1){
+            return ans[n];
         }
-    for(int i=0;i<n-1;i++){
-        next=first+second;
-    first=second;
-    second=next;
+        int a=fibo_helper(ans,n-1);
+        int b=fibo_helper(ans,n-2);
+        ans[n]=a+b;
+        return ans[n];
     }
-        return next;
-}
+    int fib(int n) {
+        int *ans=new int[n+1];
+        for(int i=0;i<=n;i++){
+            ans[i]=-1;
+        }
+        return fibo_helper(ans,n);
+    }
 };
