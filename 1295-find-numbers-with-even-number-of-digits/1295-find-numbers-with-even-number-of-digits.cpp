@@ -1,17 +1,21 @@
 class Solution {
 public:
-    int findNumbers(vector<int>& nums) {
-        for(int i=0;i<nums.size();i++){
-            string s=to_string(nums[i]);
-            int len=s.length();
-            nums[i]=len;
+    int count(int n){
+        int count1=0;
+        while(n>0){
+            n=n/10;
+            count1++;
         }
-        int val=0;
+        return count1;
+    }
+    int findNumbers(vector<int>& nums) {
+        int k,add=0;
         for(int i=0;i<nums.size();i++){
-            if(nums[i]%2==0){
-                val+=1;
+            k=count(nums[i]);
+            if(k%2==0){
+                add++;
             }
         }
-        return val;
+        return add;
     }
 };
