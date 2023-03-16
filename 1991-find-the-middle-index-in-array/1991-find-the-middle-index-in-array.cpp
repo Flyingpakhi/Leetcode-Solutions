@@ -8,7 +8,7 @@ public:
         }
         for(int i=0;i<nums.size();i++){
             right=right-nums[i];
-            cout<<left<<" "<<right<<endl;
+            // cout<<left<<" "<<right<<endl;
             if(left==right){
                 return i;
             }
