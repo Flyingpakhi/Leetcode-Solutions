@@ -1,21 +1,20 @@
 class Solution {
 public:
-    int searchB(vector<int>& nums,int s,int e,int target){
-        if(s>e){
-            return -1;
-        }
-        int mid=s+(e-s)/2;
-        if(nums[mid]==target){
-            return mid;
-        }
-        else if(nums[mid]>target){
-            return searchB(nums,s,mid-1,target);
-        }
-        else{
-            return searchB(nums,mid+1,e,target);
-        }
-    }
     int search(vector<int>& nums, int target) {
-        return searchB(nums,0,nums.size()-1,target);
+        int s=0;
+        int e=nums.size()-1;
+        while(s<=e){
+            int mid=s+(e-s)/2;
+            if(nums[mid]==target){
+                return mid;
+            }
+            else if(nums[mid]>target){
+                e=mid-1;
+            }
+            else{
+                s=mid+1;
+            }
+        }
+        return -1;
     }
 };
