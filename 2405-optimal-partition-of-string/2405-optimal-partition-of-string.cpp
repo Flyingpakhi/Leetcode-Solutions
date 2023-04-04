@@ -17,7 +17,6 @@ public:
         for(int i=0;i<size;i++){
             partition(seen,s[i],st);
             if(seen.size()==0){
-                cout<<st<<endl;
                 ans++;
                 st="";
                 partition(seen,s[i],st);
