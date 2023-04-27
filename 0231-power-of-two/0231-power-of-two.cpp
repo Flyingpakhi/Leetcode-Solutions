@@ -1,19 +1,18 @@
 class Solution {
 public:
     bool isPowerOfTwo(int n) {
-        if(n==1){
-            return true;
+        if(n<0){
+            return false;
         }
-        int sum=1;
-        while(sum<=n){
-            if(sum==n){
-                return true;
-                break;
+        int count=0;
+        while(n!=0){
+            if(n&1){
+                count++;
             }
-            if(sum>INT_MAX/2 || sum<INT_MIN/2){
-                return false;
-            }
-            sum=sum*2;
+            n=n>>1;
+        }
+        if(count==1){
+            return true;
         }
         return false;
     }
