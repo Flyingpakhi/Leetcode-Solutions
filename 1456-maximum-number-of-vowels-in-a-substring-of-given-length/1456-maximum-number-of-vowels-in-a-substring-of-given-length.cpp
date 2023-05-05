@@ -10,7 +10,7 @@ public:
         int ans=-1;
         for(int windowE=0;windowE<s.size();windowE++){
                 sub[s[windowE]-'a']++;
-                while(windowE-windowS+1>k){
+                if(windowE-windowS+1>k){
                     sub[s[windowS]-'a']--;
                     windowS++;
                 }
