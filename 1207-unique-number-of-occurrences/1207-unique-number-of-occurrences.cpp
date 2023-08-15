@@ -5,7 +5,7 @@ public:
         for(int i=0;i<arr.size();i++){
             seen[arr[i]]++;
         }
-        unordered_map<int,int>ans;
+        unordered_map<int,bool>ans;
         for(auto i:seen){
             if(ans.count(i.second)>0){
                 return false;
