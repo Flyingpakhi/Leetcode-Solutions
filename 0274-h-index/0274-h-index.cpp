@@ -12,12 +12,10 @@ public:
     int hIndex(vector<int>& citations) {
         int low=0;
         int high=citations.size();
-        int ans=0;
         while(low<=high){
             int mid=low+(high-low)/2;
             int count=cit(citations,mid);
             if(count>=mid){
-                ans=mid;
                 low=mid+1;
             }
             else{
