@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int lower(vector<int>&c,int val){
+    int lowerBound(vector<int>&c,int val){
         int low=0,high=c.size()-1;
         int ans=c.size();
         while(low<=high){
@@ -23,7 +23,7 @@ public:
         while(low<=high){
             int mid=low+(high-low)/2;
             
-            int count=lower(citations,mid);
+            int count=lowerBound(citations,mid);
             if(count>=mid){
                 low=mid+1;
             }
