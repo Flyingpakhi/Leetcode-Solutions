@@ -23,14 +23,13 @@ public:
             }
         }
         if(count>maxi){
-                    maxi=count;
+            maxi=count;
         }
         if(count1>maxi1){
-                    maxi1=count1;
+            maxi1=count1;
         }
         
-//         maxi->max cons 1, maxi1->max cons 0
-        cout<<maxi<<" "<<maxi1<<endl;
+//    maxi->max cons 1, maxi1->max cons 0
         if(maxi>maxi1){
             return true;
         }
