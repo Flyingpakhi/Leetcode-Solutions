@@ -1,5 +1,6 @@
 class Solution {
 public:
+//     moore's voting algorithm
     int majorityElement(vector<int>& nums) {
         int count=0,ele;
         for(int i=0;i<nums.size();i++){
