@@ -12,24 +12,12 @@ public:
         return "f";
     }
     string toHex(int num) {
+        unsigned int n=num;
         string ans="";
-        int count=1;
-        int counting=0;
-        int sum=0;
-        while(num!=0 && counting<=31){
-            if(count==16){
-                ans+=res(sum);
-                count=1;
-                sum=0;
-            }
-            if(num&1){
-                sum+=1*count;
-            }
-            count=count*2;
-            num=num>>1;
-            counting++;
-        }
-        ans+=res(sum);
+        do{
+            ans+=res(n%16);
+            n=n/16;
+        }while(n);
         reverse(ans.begin(),ans.end());
         return ans;
     }
