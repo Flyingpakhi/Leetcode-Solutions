@@ -10,6 +10,9 @@ public:
             if(nums[i]+i>maxind){
                 maxind=nums[i]+i;
             }
+            if(maxind>=nums.size()){
+                break;
+            }
         }
         return true;
     }
