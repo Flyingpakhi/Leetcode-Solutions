@@ -9,22 +9,19 @@ public:
             }
         }
 //         check right(arr[i-1]>arr[i],then arr[i-1] gets one more candy)
-        vector<int>ans1(ratings.size(),1);
+        int curr=1,right=1,sum=max(1,ans[ratings.size()-1]);
         for(int i=ratings.size()-2;i>=0;i--){
             if(ratings[i]>ratings[i+1]){
-                ans1[i]=ans1[i+1]+1;
-            }
-        }
-        int count=0;
-        for(int i=0;i<ratings.size();i++){
-            if(ans[i]>ans1[i]){
-                count+=ans[i];
+                curr=right+1;
+                right=curr;
             }
             else{
-                count+=ans1[i];
+                curr=1;
+                right=1;
             }
+            sum=sum+max(ans[i],curr);
         }
-        return count;
+        return sum;
         
     }
 };
